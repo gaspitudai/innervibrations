@@ -1,0 +1,41 @@
+#ajax-ingresar,#ajax-loguear
+    width: auto
+    height: auto
+    position: absolute
+
+    .form-ingresar,.form-loguear
+        width: 100vw
+        height: 90vh
+        @extend .flexear
+        flex-direction: column
+        background-color: $color-transparente
+    
+        .botonera-ingresar,.botonera-loguear
+            width: 85%
+            display: flex
+            flex-direction: column
+            z-index: 1
+        
+            #nombreU,#passwordU,#emailU,#btn-ingresar,#btn-loguear
+                height: 4em
+                padding-left: 1.5em
+                margin-top: 1.5em
+                border: none
+                background-color: $color-first
+                color: $color-font
+            
+            #nombreU,#passwordU,#emailU
+                color: $color-fondo
+                background-color: rgba(255, 255, 255, 0.90)
+            
+.olvideBox
+    margin-top: 1.5em
+    a
+        color: $color-first
+            
+#btn-cerrarForm
+    width: 100vw
+    height: 90vh
+    position: absolute
+    border: none
+    background: none

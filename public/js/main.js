@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                 document.getElementById('btn-menu').addEventListener('click',showMenu)
                 document.getElementById('btn-invisible').addEventListener('click',showMenu)
                 cuentaRegresiva()
+                document.getElementById('btn-show-ingresar').addEventListener('click',mostrarFormIngreso)
+                document.getElementById('btn-show-loguear').addEventListener('click',mostrarFormLoguear)
             })
             .catch(exc=>{
                 home.innerHTML = 'ERROR ('+exc+')'
@@ -30,6 +32,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         }else{
             botonMenu.innerHTML = '<i class="far fa-circle"></i>'
         }
+        document.querySelector('.nav-menu').classList.toggle('js-height')
     }
 
 // CUENTA REGRESIVAS
@@ -68,5 +71,48 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
         timer = setInterval(showRemaining, 1000);
     }
+
+// INGRESAR
+
+    function mostrarFormIngreso(event){
+        event.preventDefault()
+        let content = document.getElementById('ajax-ingresar')
+        fetch('html/form-ingresar.html')
+            .then(resp=>{
+                return resp.text()
+            })
+            .then(htmlform=>{
+                content.innerHTML = htmlform
+                document.getElementById('btn-cerrarForm').addEventListener('click',()=>{
+                    content.innerHTML=''
+                })
+            })
+            .catch(exc=>{
+                console.log(exc) 
+            })
+    }
+
+// LOGUEAR
+
+    function mostrarFormLoguear(event){
+        event.preventDefault()
+        let content = document.getElementById('ajax-loguear')
+        fetch('html/form-loguear.html')
+            .then(resp=>{
+                return resp.text()
+            })
+            .then(htmlform=>{
+                content.innerHTML = htmlform
+                document.getElementById('btn-cerrarForm').addEventListener('click',()=>{
+                    content.innerHTML=''
+                })
+            })
+            .catch(exc=>{
+                console.log(exc) 
+            })
+    }
+
+
+
 
 })
